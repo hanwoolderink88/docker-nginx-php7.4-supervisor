@@ -1,0 +1,12 @@
+#http redirect to https
+server {
+    listen             80 default_server;
+    server_name        _;
+    return             301 https://$host$request_uri;
+}
+
+server {
+	server_name         _;
+	root                /var/www/base/public;
+	include             snippets/wordpress-single.conf;
+}
